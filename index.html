@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Jual Beli Akun Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>GameStore</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
+                <a href="#accounts"><i class="fas fa-store"></i> Akun</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> Tentang</a>
+                <a href="admin.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+            </div>
+            <div class="nav-search">
+                <input type="text" id="searchInput" placeholder="Cari akun game...">
+                <button onclick="searchAccounts()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Jual & Beli Akun Game <br>Terpercaya</h1>
+                <p>Temukan akun game favoritmu dengan harga terbaik</p>
+                <div class="hero-badges">
+                    <span><i class="fas fa-shield-alt"></i> Aman</span>
+                    <span><i class="fas fa-bolt"></i> Cepat</span>
+                    <span><i class="fas fa-handshake"></i> Terpercaya</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-group">
+                <select id="gameFilter" onchange="filterAccounts()">
+                    <option value="all">Semua Game</option>
+                    <option value="free-fire">Free Fire</option>
+                    <option value="mobile-legends">Mobile Legends</option>
+                    <option value="pubg">PUBG</option>
+                    <option value="genshin-impact">Genshin Impact</option>
+                    <option value="valorant">Valorant</option>
+                </select>
+                <select id="priceFilter" onchange="filterAccounts()">
+                    <option value="all">Semua Harga</option>
+                    <option value="0-100000">Rp 0 - 100.000</option>
+                    <option value="100000-500000">Rp 100.000 - 500.000</option>
+                    <option value="500000-1000000">Rp 500.000 - 1.000.000</option>
+                    <option value="1000000+">Rp 1.000.000+</option>
+                </select>
+                <select id="sortFilter" onchange="filterAccounts()">
+                    <option value="newest">Terbaru</option>
+                    <option value="price-low">Harga Terendah</option>
+                    <option value="price-high">Harga Tertinggi</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Account List Section -->
+    <section id="accounts" class="account-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-store"></i> Daftar Akun</h2>
+            <div id="accountList" class="account-grid">
+                <!-- Accounts will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Tentang Kami</h2>
+            <div class="about-content">
+                <p>GameStore adalah platform jual beli akun game terpercaya. Kami menyediakan berbagai macam akun game populer dengan harga kompetitif dan keamanan terjamin.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>100% Aman</h3>
+                        <p>Semua transaksi aman dan terpercaya</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h3>Proses Cepat</h3>
+                        <p>Akun langsung bisa digunakan setelah pembelian</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>Support 24/7</h3>
+                        <p>Tim support siap membantu anda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GameStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
