@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - GameStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <header class="navbar admin-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin Panel</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html"><i class="fas fa-home"></i> Kembali</a>
+                <button onclick="logoutAdmin()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section id="adminLogin" class="admin-login-section">
+        <div class="container">
+            <div class="login-box">
+                <div class="login-header">
+                    <i class="fas fa-lock"></i>
+                    <h2>Admin Login</h2>
+                    <p>Masukkan kredensial admin untuk mengakses</p>
+                </div>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Username</label>
+                        <input type="text" id="adminUsername" placeholder="Masukkan username admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-key"></i> Password</label>
+                        <input type="password" id="adminPassword" placeholder="Masukkan password admin" required>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                <div class="login-hint">
+                    <small>Default: admin / admin123</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2><i class="fas fa-dashboard"></i> Dashboard Admin</h2>
+                <div class="theme-controls">
+                    <label><i class="fas fa-palette"></i> Tema Warna:</label>
+                    <div class="theme-options">
+                        <button onclick="setTheme('red-white')" class="theme-btn red-white"></button>
+                        <button onclick="setTheme('blue-white')" class="theme-btn blue-white"></button>
+                        <button onclick="setTheme('yellow-black')" class="theme-btn yellow-black"></button>
+                        <button onclick="setTheme('yellow-white')" class="theme-btn yellow-white"></button>
+                        <button onclick="setTheme('green-white')" class="theme-btn green-white"></button>
+                        <button onclick="setTheme('purple-white')" class="theme-btn purple-white"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-gamepad"></i>
+                    <div>
+                        <h3 id="totalAccounts">0</h3>
+                        <p>Total Akun</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tag"></i>
+                    <div>
+                        <h3 id="totalGames">0</h3>
+                        <p>Total Game</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Form -->
+            <div class="upload-section">
+                <h3><i class="fas fa-upload"></i> Upload Akun Baru</h3>
+                <form id="uploadForm" onsubmit="handleUpload(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-gamepad"></i> Nama Game</label>
+                            <select id="gameName" required>
+                                <option value="">Pilih Game</option>
+                                <option value="Free Fire">Free Fire</option>
+                                <option value="Mobile Legends">Mobile Legends</option>
+                                <option value="PUBG">PUBG</option>
+                                <option value="Genshin Impact">Genshin Impact</option>
+                                <option value="Valorant">Valorant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Harga (Rp)</label>
+                            <input type="number" id="price" placeholder="Contoh: 50000" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-image"></i> Foto Akun</label>
+                        <input type="file" id="accountImage" accept="image/*" required>
+                        <div class="image-preview" id="imagePreview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-info-circle"></i> Spek & Detail Akun</label>
+                        <textarea id="specs" rows="4" placeholder="Masukkan spesifikasi akun, rank, skin, dll" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clipboard-list"></i> Detail Lainnya</label>
+                        <textarea id="details" rows="3" placeholder="Detail tambahan akun"></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload Akun
+                    </button>
+                </form>
+            </div>
+
+            <!-- Account Management -->
+            <div class="account-management">
+                <h3><i class="fas fa-list"></i> Kelola Akun</h3>
+                <div id="adminAccountList" class="admin-account-grid">
+                    <!-- Accounts will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="db.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
