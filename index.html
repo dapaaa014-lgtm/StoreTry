@@ -8,8 +8,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameStore</span>
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+            <div class="loading-text">Memuat toko game terbaik...</div>
+        </div>
+    </div>
+
     <!-- Header / Navbar -->
-    <header class="navbar">
+    <header class="navbar" id="mainNav">
         <div class="container">
             <div class="nav-brand">
                 <i class="fas fa-gamepad"></i>
@@ -80,6 +95,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Account Detail Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <!-- Detail will be rendered here -->
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about-section">
